@@ -1,33 +1,45 @@
-HELP.md
-target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+# Maven build output
+/target/
+/pom.xml.tag
+/pom.xml.releaseBackup
+/pom.xml.versionsBackup
+/.mvn/timing.properties
 
-### STS ###
-.apt_generated
+# Eclipse
+.settings/
+*.launch
 .classpath
-.factorypath
 .project
-.settings
-.springBeans
-.sts4-cache
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
+# IntelliJ IDEA
+.idea/
+/*.iml
+/out/
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
+# VS Code
 .vscode/
+
+# Spring Boot devtools restart folder
+/.restart
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files (if you keep secrets here)
+.env
+*.env
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Backup files
+*~
+*.swp
