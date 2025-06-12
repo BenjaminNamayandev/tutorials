@@ -25,7 +25,8 @@ public class SpringbootTutorialApplication {
       // createMultiStudent(studentDAO);
       // readStudent(studentDAO);
       // queryForStudents(studentDAO);
-      queryForStudentsByLastName(studentDAO);
+      // queryForStudentsByLastName(studentDAO);
+      queryForUpdateStudent(studentDAO);
     };
   }
 
@@ -70,5 +71,13 @@ public class SpringbootTutorialApplication {
   private void queryForStudentsByLastName(StudentDAO studentDAO) {
     List<Student> theStudents = studentDAO.findByLastName("Doe");
     System.out.println(theStudents);
+  }
+
+  private void queryForUpdateStudent(StudentDAO studentDAO) {
+    int studentId = 1;
+
+    Student student = studentDAO.findById(studentId);
+    student.setFirstName("Scooby");
+    studentDAO.updateStudent(student);
   }
 }
