@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Bean;
 import com.ben.springboot_tutorial.dao.StudentDAO;
 import com.ben.springboot_tutorial.entity.Student;
 
+import java.util.List;
+
 import org.springframework.boot.CommandLineRunner;
 
 @SpringBootApplication
@@ -22,7 +24,8 @@ public class SpringbootTutorialApplication {
       // createStudent(studentDAO);
       // createMultiStudent(studentDAO);
       // readStudent(studentDAO);
-      queryForStudents(studentDAO);
+      // queryForStudents(studentDAO);
+      queryForStudentsByLastName(studentDAO);
     };
   }
 
@@ -62,5 +65,10 @@ public class SpringbootTutorialApplication {
     for (Student s : studentDAO.findAll()) {
       System.out.println(s);
     }
+  }
+
+  private void queryForStudentsByLastName(StudentDAO studentDAO) {
+    List<Student> theStudents = studentDAO.findByLastName("Doe");
+    System.out.println(theStudents);
   }
 }
