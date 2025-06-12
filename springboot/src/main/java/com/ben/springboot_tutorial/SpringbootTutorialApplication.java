@@ -21,7 +21,8 @@ public class SpringbootTutorialApplication {
     return runner -> {
       // createStudent(studentDAO);
       // createMultiStudent(studentDAO);
-      readStudent(studentDAO);
+      // readStudent(studentDAO);
+      queryForStudents(studentDAO);
     };
   }
 
@@ -55,5 +56,11 @@ public class SpringbootTutorialApplication {
     Student myStudent = studentDAO.findById(student4.getId());
 
     System.out.println(myStudent);
+  }
+
+  private void queryForStudents(StudentDAO studentDAO) {
+    for (Student s : studentDAO.findAll()) {
+      System.out.println(s);
+    }
   }
 }

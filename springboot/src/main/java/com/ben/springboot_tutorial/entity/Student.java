@@ -69,7 +69,7 @@ public class Student {
   // define toString()
   @Override
   public String toString() {
-    return String.format("name: %s %s, email: %s", firstName, lastName, email);
+    return String.format("id: %d name: %s %s, email: %s", id, firstName, lastName, email);
   }
 
 }

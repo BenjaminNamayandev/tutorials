@@ -1,10 +1,13 @@
 package com.ben.springboot_tutorial.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import com.ben.springboot_tutorial.entity.Student;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 
 @Repository
 public class StudentDAOImpl implements StudentDAO {
@@ -27,5 +30,14 @@ public class StudentDAOImpl implements StudentDAO {
   public Student findById(int id) {
     Student foundStudent = entityManager.find(Student.class, id);
     return foundStudent;
+  }
+
+  @Override
+  public List<Student> findAll() {
+
+    TypedQuery<Student> theQuery = entityManager.createQuery("FROM Student order by lastName DESC", Student.class);
+    System.out.printf("TYPED QUERY: %s", theQuery);
+
+    return theQuery.getResultList();
   }
 }
