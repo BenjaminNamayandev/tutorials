@@ -22,12 +22,18 @@ public class SpringbootTutorialApplication {
   public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
     return runner -> {
       // createStudent(studentDAO);
-      // createMultiStudent(studentDAO);
+      createMultiStudent(studentDAO);
       // readStudent(studentDAO);
       // queryForStudents(studentDAO);
       // queryForStudentsByLastName(studentDAO);
-      queryForUpdateStudent(studentDAO);
+      // queryForUpdateStudent(studentDAO);
+      // removeStudent(studentDAO);
+      // removeAllStudents(studentDAO);
     };
+  }
+
+  private void removeAllStudents(StudentDAO studentDAO) {
+    System.out.printf("%d students deleted from table\n", studentDAO.deleteAll());
   }
 
   private void createStudent(StudentDAO studentDAO) {
@@ -79,5 +85,11 @@ public class SpringbootTutorialApplication {
     Student student = studentDAO.findById(studentId);
     student.setFirstName("Scooby");
     studentDAO.updateStudent(student);
+  }
+
+  private void removeStudent(StudentDAO studentDAO) {
+    int sId = 7;
+
+    studentDAO.deleteStudent(sId);
   }
 }
