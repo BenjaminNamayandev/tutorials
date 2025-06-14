@@ -1,6 +1,7 @@
 package com.tutorial.u4.rest;
 
 import java.util.*;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,6 +36,12 @@ public class StudentRestController {
   // path variable for student
   @GetMapping("/students/{studentId}")
   public Student getStudent(@PathVariable int studentId) {
+    // check for exception
+
+    if ((studentId >= students.size()) || (studentId < 0)) {
+      throw new StudentNotFoundException(String.format("Student with ID of %d could not be found", studentId));
+    }
+
     return students.get(studentId);
   }
 }
