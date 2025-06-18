@@ -1,15 +1,6 @@
-use std::io;
-
 fn main() {
-    println!("Guess a number");
+    let x: i32 = 2147483647;
+    let y: u32 = 100;
 
-    println!("Your choice: ");
-
-    let mut guess = String::new();
-
-    io::stdin()
-        .read_line(&mut guess)
-        .expect("Failed to readline");
-
-    println!("You guessed {}", guess);
+    println!("x = {}, y={}", x, y);
 }
